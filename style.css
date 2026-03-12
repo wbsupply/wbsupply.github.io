@@ -1,0 +1,337 @@
+/* -------------------------
+1. RESET & BASE STYLES
+------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* -------------------------
+2. HEADER & NAVIGATION
+------------------------- */
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 200px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: gold;
+}
+
+/* -------------------------
+3. HERO SECTION
+------------------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4); /* Added slight background for text readability */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hero-text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+/* -------------------------
+4. BUTTONS & UI
+------------------------- */
+.cta-button {
+  display: inline-block;
+  background: gold;
+  color: black;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  text-align: center;
+  border: none;
+}
+
+.cta-button:hover {
+  background: #ffdd00;
+  transform: scale(1.05);
+}
+
+/* -------------------------
+5. ABOUT SECTION
+------------------------- */
+#about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 10%;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* -------------------------
+6. PRODUCT GRID (THE MAIN CHANGE)
+------------------------- */
+#products {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+#products h2 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 40px;
+  font-size: 28px;
+}
+
+.product-grid {
+  display: grid;
+  /* ARRANGEMENT: 1 2 3 4 */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.product-card {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s;
+  border: 1px solid #222;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: #444;
+}
+
+/* -------------------------
+7. QUICK VIEW & IMAGES
+------------------------- */
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 250px; /* Uniform height for all product boxes */
+  margin-bottom: 15px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.quick-view-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.quick-view-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transform: translateY(20px);
+  transition: 0.3s ease;
+}
+
+/* Show Quick View on Hover */
+.product-card:hover .quick-view-overlay {
+  opacity: 1;
+}
+
+.product-card:hover .quick-view-btn {
+  transform: translateY(0);
+}
+
+.quick-view-btn:hover {
+  background: gold;
+}
+
+/* -------------------------
+8. PRODUCT DETAILS
+------------------------- */
+.price {
+  color: gold;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.product-card label {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  color: #aaa;
+}
+
+.product-card select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* -------------------------
+9. LISTS & FOOTER
+------------------------- */
+.product-list {
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.product-list li {
+  margin-bottom: 10px;
+}
+
+#contact {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+}
+
+/* -------------------------
+10. WHATSAPP & RESPONSIVE
+------------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media(max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller laptops */
+  }
+}
+
+@media(max-width: 850px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+  #about {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media(max-width: 500px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 column for phones */
+  }
+  .hero-text h1 {
+    font-size: 28px;
+  }
+}
